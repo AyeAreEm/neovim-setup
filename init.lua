@@ -7,6 +7,9 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.cmd('set nowrap')
+vim.cmd([[
+autocmd BufRead,BufNewFile *.imp set filetype=impulse
+]])
 
 local lazy = {}
 
@@ -46,8 +49,9 @@ lazy.setup({
     {'hrsh7th/nvim-cmp'},                  -- Autocomplete engine
     {'hrsh7th/cmp-nvim-lsp'},              -- Completion source for LSP
     {'L3MON4D3/LuaSnip'},                  -- Snippet engine
+    {'nvim-tree/nvim-web-devicons'},
     {
-		"rose-pine/neovim",
+	    "rose-pine/neovim",
 		name = "rose-pine",
 		config = function()
 			require('rose-pine').setup({
@@ -101,17 +105,34 @@ lazy.setup({
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-			local harpoon = require('harpoon')
-			harpoon:setup()
+            local harpoon = require('harpoon')
+            harpoon:setup()
 
-			vim.keymap.set("n", "<Space>a", function() harpoon:list():append() end)
-			vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+            vim.keymap.set("n", "<Space>a", function() harpoon:list():append() end)
+            vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
-			vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-			vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
-			vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
-			vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
+            vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+            vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
+            vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
+            vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
 		end
+    },
+    {
+        "stevearc/oil.nvim",
+        config = function()
+            require('oil').setup {
+                columns = { "icons" },
+                keymaps = {
+                    ["<C-h>"] = false,
+                    ["<M-h>"] = "actions.select_split",
+                },
+                view_options = {
+                    show_hidden = true,
+                },
+            }
+
+            vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory"})
+        end
     },
 })
 
