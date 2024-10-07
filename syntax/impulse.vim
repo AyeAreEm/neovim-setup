@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 " Language: Impulse
 " Instructions:
 " Move this file into .vim/syntax/impulse.vim or

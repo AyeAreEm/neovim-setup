@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- https://github.com/VonHeikemen/nvim-starter/blob/xx-mason/init.lua
 -- thank you for the completion and snippet stuff, absolute nightmare without this repo^
 
