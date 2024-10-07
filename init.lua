@@ -141,6 +141,17 @@ lazy.setup({
             vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory"})
         end
     },
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("lualine").setup({
+                options = {
+                    theme = "auto",
+                }
+            })
+        end,
+    },
 })
 
 local cmp = require('cmp')
