@@ -2,6 +2,7 @@
 -- thank you for the completion and snippet stuff, absolute nightmare without this repo^
 
 vim.opt.number = true
+vim.opt.laststatus = 3
 
 vim.cmd([[
 set number relativenumber
@@ -148,6 +149,8 @@ lazy.setup({
             require("lualine").setup({
                 options = {
                     theme = "auto",
+                    section_separators = '',
+                    component_separators = '',
                 }
             })
         end,
