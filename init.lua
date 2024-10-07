@@ -106,6 +106,7 @@ lazy.setup({
 			local tele = require('telescope.builtin')
 			vim.keymap.set('n', '<Space>ff', tele.find_files, {})
 			vim.keymap.set('n', '<Space>gf', tele.git_files, {})
+			vim.keymap.set('n', '<Space>fg', tele.live_grep, {}) -- make sure ripgrep is installed
 		end
     },
     {
