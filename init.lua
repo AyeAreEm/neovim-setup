@@ -3,6 +3,7 @@
 
 vim.opt.number = true
 vim.opt.laststatus = 3
+vim.opt.ignorecase = true
 
 vim.cmd([[
 set number relativenumber
@@ -15,9 +16,6 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
 vim.cmd('set nowrap')
-vim.cmd([[
-autocmd BufRead,BufNewFile *.imp set filetype=impulse
-]])
 
 local lazy = {}
 
